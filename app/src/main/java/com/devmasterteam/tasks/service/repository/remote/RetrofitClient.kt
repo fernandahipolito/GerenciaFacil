@@ -8,6 +8,7 @@ class RetrofitClient private constructor(){
     companion object {
 
         private lateinit var INSTANCE: Retrofit
+        // private val INSTANCE by lazy {  ?  }
         private fun getRetrofitInstance(): Retrofit {
           val httpClient = OkHttpClient.Builder().build()
 
