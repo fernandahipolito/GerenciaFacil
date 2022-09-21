@@ -52,6 +52,8 @@
         <entry key="app/src/main/res/layout/fragment_next_tasks.xml" value="0.35104166666666664" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.35104166666666664" />
         <entry key="app/src/main/res/layout/row_task_list.xml" value="0.35104166666666664" />
+        <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.25052083333333336" />
+        <entry key="app/src/main/res/menu/main.xml" value="0.25052083333333336" />
       </map>
     </option>
   </component>

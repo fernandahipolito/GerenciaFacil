@@ -10,6 +10,7 @@
     <EditText
         android:id="@+id/edit_email"
         android:layout_width="0dp"
+        android:autofillHints="emailAddress"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:hint="@string/email"
@@ -21,6 +22,7 @@
     <EditText
         android:id="@+id/edit_password"
         android:layout_width="0dp"
+        android:autofillHints="password"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="@string/senha"
@@ -31,7 +33,7 @@
 
     <Button
         android:id="@+id/button_login"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="64dp"
