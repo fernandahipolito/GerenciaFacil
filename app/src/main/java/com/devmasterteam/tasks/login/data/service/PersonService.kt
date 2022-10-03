@@ -1,4 +1,4 @@
-package com.devmasterteam.tasks.service.repository.remote
+package com.devmasterteam.tasks.login.data.service
 
 import com.devmasterteam.tasks.service.model.PersonModel
 import retrofit2.Call
@@ -13,10 +13,10 @@ interface PersonService {
 
     @POST("Authentication/Login")
     @FormUrlEncoded //é a maneira que são enviadas as informações(body)
-    fun login(
+    suspend fun login(
        @Field("email") email: String,
        @Field("password") password: String
-   ): Call<PersonModel>
+   ): PersonModel
 
 
     @POST("Authentication/Create")
@@ -26,5 +26,5 @@ interface PersonService {
         @Field("email") email: String,
         @Field("password") password: String,
         //@Field("receivenews") receivenews: Boolean -> Já vem false por padrão, então não coloca
-    ): Call<PersonModel>
+    ): PersonModel
 }
