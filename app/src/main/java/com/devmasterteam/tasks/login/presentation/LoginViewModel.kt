@@ -3,35 +3,25 @@ package com.devmasterteam.tasks.login.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.devmasterteam.tasks.login.domain.PersonRepository
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 
 class LoginViewModel(private val personRepository: PersonRepository) : ViewModel() {
 
     val email: String = ""
     val password: String = ""
+    private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 
-    // val loginChange = MutableLiveData<PersonModel>()
-//
-   // fun loginSeiLa() {
-   //     personRepository.login()
-   //         .collect()
-   // }
     init {
         viewModelScope.launch {
             personRepository.login(email = email, password = password)
+                .flowOn(dispatcher)
                 .collect()
-
         }
     }
-    //private val personRepository = PersonRepository()
-    /**
-     * Faz login usando API
-     */
-  //  fun doLogin(email: String, password: String) {
-      //  personRepository.login(email,password)
-    //}
-
 
     /**
      * Verifica se usuário está logado

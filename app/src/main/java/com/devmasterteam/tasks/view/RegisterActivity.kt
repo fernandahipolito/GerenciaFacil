@@ -4,10 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
-import com.devmasterteam.tasks.R
-import com.devmasterteam.tasks.databinding.ActivityLoginBinding
 import com.devmasterteam.tasks.databinding.ActivityRegisterBinding
-import com.devmasterteam.tasks.viewmodel.LoginViewModel
 import com.devmasterteam.tasks.viewmodel.RegisterViewModel
 
 class RegisterActivity : AppCompatActivity(), View.OnClickListener {

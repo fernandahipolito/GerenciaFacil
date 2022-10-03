@@ -1,4 +1,4 @@
-package com.devmasterteam.tasks.service.model
+package com.devmasterteam.tasks.login.data.model
 
 import com.google.gson.annotations.SerializedName
 
