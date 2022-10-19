@@ -10,8 +10,8 @@ interface PersonService {
     //http://devmasterteam.com/CursoAndroidAPI/Authentication/Login
     //http://devmasterteam.com/CursoAndroidAPI/Authentication/Create
 
-    @POST("Authentication/Login")
     @FormUrlEncoded //é a maneira que são enviadas as informações(body)
+    @POST("Authentication/Login")
     suspend fun login(
        @Field("email") email: String,
        @Field("password") password: String
