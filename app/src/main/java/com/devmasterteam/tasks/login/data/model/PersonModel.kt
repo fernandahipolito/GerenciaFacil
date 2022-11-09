@@ -1,16 +1,19 @@
 package com.devmasterteam.tasks.login.data.model
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-class PersonModel {//retorno de create e de login é o mesmo, esse aqui
+@Serializable
+data class PersonModel(
 
-    @SerializedName("token")
-    lateinit var token: String
+    @SerialName("token")
+    val token: String?,
 
-    @SerializedName("personKey")
-    lateinit var personKey: String
+    @SerialName("personKey")
+    val personKey: String,
 
-    @SerializedName("name")
-    lateinit var name: String
+    @SerialName("name")
+    val name: String
 
-}
+)//retorno de create e de login é o mesmo, esse aqui
+
