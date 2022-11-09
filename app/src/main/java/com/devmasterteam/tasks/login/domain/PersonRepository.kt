@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 
 interface PersonRepository {
-    suspend fun login(email: String, password: String): Flow<PersonModel>
+   suspend fun login(email: String, password: String): Flow<PersonModel>
 }

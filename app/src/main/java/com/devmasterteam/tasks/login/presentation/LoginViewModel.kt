@@ -1,36 +1,33 @@
 package com.devmasterteam.tasks.login.presentation
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.devmasterteam.tasks.login.domain.PersonRepository
-import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 
-class LoginViewModel(private val personRepository: PersonRepository) : ViewModel() {
+class LoginViewModel(private val personRepository: PersonRepository
 
-    val email: String = ""
-    val password: String = ""
-    private val dispatcher: CoroutineDispatcher = Dispatchers.IO
+) : ViewModel() {
 
-    init {
+
+    private val _initLogin = MutableLiveData<ResultState>()
+    val initLogin: LiveData<ResultState> get() = _initLogin
+
+    fun doLogin(email: String,password:String) {
         viewModelScope.launch {
-            personRepository.login(email = email, password = password)
-                .flowOn(dispatcher)
-                .collect()
+            personRepository.login(email, password)
+                .flowOn(Dispatchers.IO)
+                .catch {
+                    _initLogin.value = ResultState.Error
+                }
+                .collect { result ->
+                    _initLogin.value = ResultState.Success(data = result)
+                }
         }
     }
-
-    /**
-     * Verifica se usuário está logado
-     */
-    fun verifyLoggedUser() {
-    }
-
-}
-
-private fun <T> Flow<T>.collect() {
-    TODO("Not yet implemented")
 }
